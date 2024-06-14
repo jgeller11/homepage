@@ -6,7 +6,11 @@
 </head> 
 
 
-<body>
+<body onload = "document.getElementById('query').focus(); ">
+
+<form id = "form">
+    <input type="text" id="query" placeholder = "" style = "width:80%;"></input>
+</form>
 
 <a href="https://www.tumblr.com/dashboard/blog_subs"> <span class="linkbox">
     t
@@ -19,6 +23,23 @@
 </span></a>
 
 
+<script>
+    const f = document.getElementById('form');
+    const q = document.getElementById('query');
+    const ddg = 'https://duckduckgo.com/?q=';
+
+    function submitted(event) {
+      event.preventDefault();
+      const url = ddg + '+' + q.value;
+      const win = window.open(url, '_self');//, '_blank'
+      win.focus();
+    }
+
+    f.addEventListener('submit', submitted);
+  </script>
+
 </body>
+
+
 
 </html>
