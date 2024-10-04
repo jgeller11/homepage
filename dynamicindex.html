@@ -38,7 +38,9 @@
     function submitted(event) {
       event.preventDefault();
       var url = "";
-      if (q.value.substring(0,2) == "@w") {
+      if (q.value == "reset") {
+        update();
+      } else if (q.value.substring(0,2) == "@w") {
         const query = q.value.substring(q.value.indexOf(' ') + 1);
         console.log(query)
         url = 'https://en.wikipedia.org/wiki/' + query;
