@@ -1,0 +1,75 @@
+<html>
+
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<title> home </title>
+</head> 
+
+
+<body onload = "populate();"><!-- onload = "document.getElementById('query').focus(); " -->
+
+
+<form id = "form">
+    <input type="text" id="query" placeholder = "" class = "searchbar" autofocus></input>
+</form>
+
+<div id="links">
+
+<!-- <a href="https://www.tumblr.com/dashboard/blog_subs"> <span class="linkbox">
+    t
+</span></a>
+<a href="https://www.xkcd.com"> <span class="linkbox">
+    x
+</span></a>
+<a href="https://www.youtube.com/feed/subscriptions"> <span class="linkbox">
+    y
+</span></a> -->
+
+</div>
+
+<!-- <button onclick = "update();"></button> -->
+
+<script src="script.js" defer></script>
+
+<script>
+    const f = document.getElementById('form');
+    const q = document.getElementById('query');
+
+    function submitted(event) {
+      event.preventDefault();
+      var url = "";
+      if (q.value.substring(0,2) == "@w") {
+        const query = q.value.substring(q.value.indexOf(' ') + 1);
+        console.log(query)
+        url = 'https://en.wikipedia.org/wiki/' + query;
+      } else if (q.value.substring(0,1) == "=") {
+        const query = q.value.substring(q.value.indexOf(' ') + 1);
+        console.log(query)
+        url = 'https://www.wolframalpha.com/input/?i=' + query;
+      } else if (q.value.substring(0,4) == "@scr") {
+        const query = q.value.substring(q.value.indexOf(' ') + 1);
+        console.log(query)
+        url = 'https://scryfall.com/search?q=' + query;
+      } else if (q.value.substring(0,2) == "@s") {
+        const query = q.value.substring(q.value.indexOf(' ') + 1);
+        console.log(query)
+        url = 'https://scholar.google.com/scholar?q=' + query;
+      } else if (q.value.substring(0,2) == "@g") {
+        const query = q.value.substring(q.value.indexOf(' ') + 1);
+        console.log(query)
+        url = 'https://www.google.com/search?q=' + query;
+      } else {
+        url = 'https://duckduckgo.com/?q=' + q.value;
+      }
+      const win = window.open(url, '_self');//, '_blank'
+      win.focus();
+    }
+
+    f.addEventListener('submit', submitted);
+  </script>
+
+</body>
+
+
+
+</html>
