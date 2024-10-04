@@ -17,8 +17,13 @@ line-height: 1em;
 font-family: helvetica;
 font-weight: 100;
 flex-direction: row-reverse;
-background-color: #1a1a1a;
+background-color: #1C1B21;
+/* background-color: #1a1a1a; */
 vertical-align: middle;
+}
+
+a {
+    text-decoration: none;
 }
 
 .square {
@@ -53,7 +58,8 @@ box-shadow: 20px 20px 0px;
     width: calc(8vw + 1em);
     /* height: 10vw; */
     color: white;
-    background-color: #202020;
+    /* background-color: #202020; */
+    background-color: #2B2A32;
     vertical-align: middle;
     text-align: center;
     transition: 0.2s;
@@ -75,10 +81,12 @@ box-shadow: 20px 20px 0px;
 
 .searchbar {
     width : 100%;
-    background-color: #1a1a1a;
+    /* background-color: #1a1a1a; */
+    background-color: #1C1B21;
     border-width: 10px;
     border-style: solid;
-    border-color: #202020;
+    /* border-color: #202020; */
+    border-color: #2B2A32;
     color: white;
     padding: 8px;
     font-size: large;
