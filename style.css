@@ -10,7 +10,7 @@
 }
 
 body {
-padding: calc(50vh - 4vw - 0.5em);
+
 /* margin: 0; */ 
 /* margin-top: 3.96vw; */
 line-height: 1em;
@@ -20,6 +20,10 @@ flex-direction: row-reverse;
 background-color: #1C1B21;
 /* background-color: #1a1a1a; */
 vertical-align: middle;
+}
+
+#main {
+    padding: calc(50vh - 4vw - 0.5em);
 }
 
 a {
@@ -96,4 +100,22 @@ box-shadow: 20px 20px 0px;
 .searchbar:focus {
     outline: none;
     border-color: #101040;
+}
+
+#ptable {
+    padding: 30px;
+}
+
+.element {
+    height: 70px;
+    width: 5%;
+    background: #2B2A32;
+    font-weight: 100;
+    font-size: 30px;
+    color: cyan;
+    text-align: center;
+}
+.notelement {
+    height: 70px;
+    width: 70px;
 }

@@ -10,8 +10,16 @@ function populate() {
         style.appendChild(document.createTextNode(css));
     }
 
+    if (localStorage.getItem("ptable")) {
+        document.getElementById("ptable").style.display = "inline";
+    }
+
     document.getElementsByTagName('head')[0].appendChild(style);
 
+}
+
+function showptable() {
+    localStorage.setItem("ptable", true)
 }
 
 function update() {
