@@ -257,11 +257,12 @@
         console.log(query)
         url = 'https://en.wikipedia.org/wiki/' + query;
       } else if (q.value.substring(0,1) == "=") {
-        const query = q.value.substring(q.value.indexOf(' ') + 1);
+        const temp_query = q.value.substring(q.value.indexOf(' ') + 1);
+        const query = temp_query.replace("+", "%2B")
         console.log(query)
         url = 'https://www.wolframalpha.com/input/?i=' + query;
       } else if (q.value.substring(0,4) == "@scr") {
-        const query = q.value.substring(q.value.indexOf(' ') + 1);
+        const query = q.value.substring(q.value.indexOf(' ') + 1).replace("+","%2B");
         console.log(query)
         url = 'https://scryfall.com/search?q=' + query;
       } else if (q.value.substring(0,2) == "@s") {
