@@ -102,6 +102,26 @@ box-shadow: 20px 20px 0px;
     border-color: #101040;
 }
 
+.photonbar {
+    width : 60%;
+    /* background-color: #1a1a1a; */
+    background-color: #1C1B21;
+    border-width: 10px;
+    border-style: solid;
+    /* border-color: #202020; */
+    border-color: #2B2A32;
+    color: white;
+    padding: 8px;
+    font-size: large;
+    transition: 0.5s;
+    display: inline;
+}
+
+.photonbar:focus {
+    outline: none;
+    border-color: #101040;
+}
+
 #ptable {
     padding: 30px;
 }

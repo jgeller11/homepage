@@ -43,9 +43,24 @@
 
 </div>
 
+
+<div id = "photon" style = "display:none;">
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+<form id = "ev_form">
+<input style = "display: inline;" type="text" id="ev_query" placeholder = "" class = "photonbar"></input><p style = "display: inline; color: white;"> eV</p><br><br>
+</form>  
+<form id = "nm_form">  
+<input style = "display: inline;" type="text" id="nm_query" placeholder = "" class = "photonbar"></input><p style = "display: inline; color: white;"> nm</p><br><br>
+</form>  
+<form id = "thz_form">  
+<input style = "display: inline;" type="text" id="thz_query" placeholder = "" class = "photonbar"></input><p style = "display: inline; color: white;"> THz</p>
+</form>  
 </div>
 
-<div id="ptable" style="display:none;">
+</div>
+
+
+<div id = "ptable" style = "display:none;">
 
 <table>
   <tr>
@@ -281,6 +296,41 @@
     }
 
     f.addEventListener('submit', submitted);
+
+
+    const f_ev = document.getElementById('ev_form');
+    const q_ev = document.getElementById('ev_query');
+    const f_nm = document.getElementById('nm_form');
+    const q_nm = document.getElementById('nm_query');
+    const f_thz = document.getElementById('thz_form');
+    const q_thz = document.getElementById('thz_query');
+
+    function ev_submitted(event) {
+      event.preventDefault();
+      const ev = parseFloat(q_ev.value);
+      q_nm.value = 1239.84198 / ev;
+      q_thz.value = 241.798924 * ev;
+    }
+
+    function nm_submitted(event) {
+      event.preventDefault();
+      const nm = parseFloat(q_nm.value);
+      q_ev.value = 1239.84198 / nm;
+      q_thz.value = 299792.458 / nm;
+    }
+
+    function thz_submitted(event) {
+      event.preventDefault();
+      const thz = parseFloat(q_thz.value);
+      q_ev.value = thz / 241.798924;
+      q_nm.value = 299792.458 / thz;
+    }
+    f_ev.addEventListener('submit', ev_submitted);
+    f_nm.addEventListener('submit', nm_submitted);
+    f_thz.addEventListener('submit', thz_submitted);
+    
+    // f_nm.addEventListener('submit', nm_submitted);
+    // f_thz.addEventListener('submit', thz_submitted);
   </script>
 
 </body>

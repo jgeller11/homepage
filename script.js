@@ -12,6 +12,7 @@ function populate() {
 
     if (localStorage.getItem("ptable")) {
         document.getElementById("ptable").style.display = "inline";
+        document.getElementById("photon").style.display = "inline";
     }
 
     document.getElementsByTagName('head')[0].appendChild(style);
