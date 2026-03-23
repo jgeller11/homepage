@@ -151,11 +151,11 @@ function calc_focus() {
 
     if (!isNaN(d_final)&&(d_final > 0)) {
         result_diameter.innerHTML = precise(d_final).toString() + " µm";
+        if (!isNaN(fluence)&&(fluence > 0)) {
+            result_fluence.innerHTML = precise(fluence).toString() + " µJ/cm^2";
+        }
     }
     
-    if (!isNaN(fluence)&&(fluence > 0)) {
-        result_fluence.innerHTML = precise(fluence).toString() + " µJ/cm^2";
-    }
 }
 
 
