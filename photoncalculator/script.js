@@ -149,11 +149,11 @@ function calc_focus() {
     const d_final = 4e-3 * m2 * nm * d_lens / (3.14159 * d_init);
     const fluence = 8e8 * uj / (3.14159 * (d_final*d_final));
 
-    if (!isNaN(d_final)) {
+    if (!isNaN(d_final)&&(d_final > 0)) {
         result_diameter.innerHTML = precise(d_final).toString() + " µm";
     }
     
-    if (!isNaN(fluence)) {
+    if (!isNaN(fluence)&&(fluence > 0)) {
         result_fluence.innerHTML = precise(fluence).toString() + " µJ/cm^2";
     }
 }
