@@ -45,12 +45,15 @@ function populate() {
     const f_d_init = document.getElementById('d_init_form');
     const f_d_lens = document.getElementById('d_lens_form');
     const f_m2 = document.getElementById('m2_form');
+    const f_fwhm = document.getElementById('fwhm_form');
     f_d_init.addEventListener('input', calc_focus);
     f_d_lens.addEventListener('input', calc_focus);
     f_m2.addEventListener('input', calc_focus);
-    f_d_init.addEventListener('submit', suppress_submit);
-    f_d_lens.addEventListener('submit', suppress_submit);
-    f_m2.addEventListener('submit', suppress_submit);
+    f_fwhm.addEventListener('input', calc_focus);
+    f_d_init.addEventListener('submit', calc_focus);
+    f_d_lens.addEventListener('submit', calc_focus);
+    f_m2.addEventListener('submit', calc_focus);
+    f_fwhm.addEventListener('submit', calc_focus);
 }
 
 function suppress_submit(event) {
@@ -133,26 +136,34 @@ function calc_focus_wrapper(event) {
 function calc_focus() {
 
     const q_nm = document.getElementById('nm_query');
+    const q_uj = document.getElementById('uj_query');
     const q_d_init = document.getElementById('d_init_query');
     const q_d_lens = document.getElementById('d_lens_query');
     const q_m2 = document.getElementById('m2_query');
-    const q_uj = document.getElementById('uj_query');
+    const q_fwhm = document.getElementById('fwhm_query');
     const result_diameter = document.getElementById('focus_diameter');
     const result_fluence = document.getElementById('peak_fluence');
+    const result_field = document.getElementById('peak_field');
     
     const d_init = q_d_init.value;
     const d_lens = q_d_lens.value;
     const m2 = q_m2.value;
+    const fwhm = q_fwhm.value;
     const nm = q_nm.value;
     const uj = q_uj.value;
 
     const d_final = 4e-3 * m2 * nm * d_lens / (3.14159 * d_init);
     const fluence = 8e8 * uj / (3.14159 * (d_final*d_final));
+    const intensity = 0.94 * fluence / fwhm;
+    const peak_field = 0.0868 * Math.sqrt(intensity);
 
     if (!isNaN(d_final)&&(d_final > 0)) {
         result_diameter.innerHTML = precise(d_final).toString() + " µm";
         if (!isNaN(fluence)&&(fluence > 0)) {
             result_fluence.innerHTML = precise(fluence).toString() + " µJ/cm^2";
+            if (!isNaN(peak_field)&&(peak_field > 0)) {
+                result_field.innerHTML = precise(peak_field).toString() + " V/nm";
+            }
         }
     }
     
