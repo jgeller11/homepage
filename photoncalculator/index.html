@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<title> home </title>
+</head> 
+
+
+<body onload = "populate();">
+
+<div id = "photon_calculator">
+
+<div id = "wavelength_selection" class = "selection_pane">
+
+<form id = "ev_form">
+<h5> photon energy:</h5>
+<input style = "display: inline;" type="text" id="ev_query" placeholder = "" class = "photonbar"></input><p style = "display: inline; color: white;"> eV</p><br><br>
+</form>  
+<form id = "nm_form">  
+<h5> wavelength:</h5>
+<input style = "display: inline;" type="text" id="nm_query" placeholder = "" class = "photonbar"></input><p style = "display: inline; color: white;"> nm</p><br><br>
+</form>  
+<form id = "thz_form">  
+<h5> frequency:</h5>
+<input style = "display: inline;" type="text" id="thz_query" placeholder = "" class = "photonbar"></input><p style = "display: inline; color: white;"> THz</p>
+</form>  
+</div>
+
+<div id = "power_selection" class = "selection_pane">
+<h5> repetition rate:</h5>
+<form id = "khz_form">  
+  <input style = "display: inline;" type="text" id="khz_query" placeholder = "" class = "photonbar"></input><p style = "display: inline; color: white;"> kHz</p><br><br>
+</form>  
+<h5> power:</h5>
+<form id = "mw_form">
+  <input style = "display: inline;" type="text" id="mw_query" placeholder = "" class = "photonbar"></input><p style = "display: inline; color: white;"> mW</p><br><br>
+</form>  
+<h5> pulse energy:</h5>
+<form id = "uj_form">  
+  <input style = "display: inline;" type="text" id="uj_query" placeholder = "" class = "photonbar"></input><p style = "display: inline; color: white;"> µJ</p>
+</form>  
+
+<button id="auto_power" onclick = "auto_power_from_wavelength()">auto</button>
+</div>
+
+<div id = "focus_selection" class = "selection_pane">
+  <h5> initial beam diameter (1/e^2):</h5>
+  <form id = "d_init_form">
+    <input style = "display: inline;" type="text" id="d_init_query" placeholder = "" class = "photonbar"></input><p style = "display: inline; color: white;"> mm</p><br><br>
+  </form>  
+  <h5> lens focal length:</h5>
+  <form id = "d_lens_form">  
+    <input style = "display: inline;" type="text" id="d_lens_query" placeholder = "" class = "photonbar"></input><p style = "display: inline; color: white;"> mm</p><br><br>
+  </form>  
+  <h5> M^2:</h5>
+<form id = "m2_form">  
+<input style = "display: inline;" type="text" id="m2_query" placeholder = "" class = "photonbar"></input><p style = "display: inline; color: white;"></p>
+</form>  
+</div>
+
+<div id = "results" class = "selection_pane">
+  <h5>focus beam diameter (1/e^2):</h5>
+  <p class="result" id="focus_diameter"> </p>
+  <h5>peak fluence:</h5>
+  <p class="result" id="peak_fluence"> </p>
+</div>
+
+</div>
+
+<script src="script.js" defer></script>
+
+</body>
+
+</html>

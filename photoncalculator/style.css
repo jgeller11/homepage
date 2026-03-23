@@ -1,0 +1,73 @@
+
+body {
+/* margin: 0; */ 
+/* margin-top: 3.96vw; */
+line-height: 1em;
+font-family: helvetica;
+font-weight: 100;
+flex-direction: row-reverse;
+background-color: #1C1B21;
+/* background-color: #1a1a1a; */
+vertical-align: middle;
+/* padding-top: calc(50vh - 15vw - 0.5em);
+padding-bottom: calc(50vh - 15vw - 0.5em); */
+padding-left: 100px;
+padding-right: 100px;
+}
+
+#photon_calculator {
+    display: table-row;
+    position: relative;
+    height: 95vh;
+}
+
+.selection_pane {
+    vertical-align: middle;
+    height: 100%;
+    width : 20%;
+    display: table-cell;
+}
+
+.photonbar {
+    width : 40%;
+    /* background-color: #1a1a1a; */
+    background-color: #1C1B21;
+    border-width: 10px;
+    border-style: solid;
+    /* border-color: #202020; */
+    border-color: #2B2A32;
+    color: white;
+    padding: 8px;
+    font-size: large;
+    transition: 0.5s;
+    display: inline;
+}
+
+.photonbar:focus {
+    outline: none;
+    border-color: #5050a0;
+}
+
+#auto_power {
+    margin-top: 10px;
+    padding: 10px;
+    width : 60%;
+    border: none;
+    background-color: #2B2A32;
+    color: white;
+    font-size: large;
+    transition: 0.5s;
+}
+
+#auto_power:hover {
+    background-color: #5050a0;
+}
+
+.selection_pane h5 {
+    color: white;
+}
+
+.result {
+    font-size: large;
+    color: white;
+}
