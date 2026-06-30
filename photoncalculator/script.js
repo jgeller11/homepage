@@ -136,6 +136,7 @@ function calc_focus_wrapper(event) {
 function calc_focus() {
 
     const q_nm = document.getElementById('nm_query');
+    const q_thz = document.getElementById('thz_query');
     const q_uj = document.getElementById('uj_query');
     const q_d_init = document.getElementById('d_init_query');
     const q_d_lens = document.getElementById('d_lens_query');
@@ -144,6 +145,7 @@ function calc_focus() {
     const result_diameter = document.getElementById('focus_diameter');
     const result_fluence = document.getElementById('peak_fluence');
     const result_field = document.getElementById('peak_field');
+    const result_field_wavevec = document.getElementById('peak_field_wavevec');
     
     const d_init = q_d_init.value;
     const d_lens = q_d_lens.value;
@@ -156,6 +158,7 @@ function calc_focus() {
     const fluence = 8e8 * uj / (3.14159 * (d_final*d_final));
     const intensity = 0.94 * fluence / fwhm;
     const peak_field = 0.0868 * Math.sqrt(intensity);
+    const peak_field_wavevec = 24.18 * peak_field / thz;
 
     if (!isNaN(d_final)&&(d_final > 0)) {
         result_diameter.innerHTML = precise(d_final).toString() + " µm";
@@ -163,6 +166,9 @@ function calc_focus() {
             result_fluence.innerHTML = precise(fluence).toString() + " µJ/cm^2";
             if (!isNaN(peak_field)&&(peak_field > 0)) {
                 result_field.innerHTML = precise(peak_field).toString() + " V/nm";
+                if (!isNaN(peak_field)&&(peak_field > 0)) {
+                    result_field_wavevec.innerHTML = precise(peak_field_wavevec).toString() + " 1/Å";
+                }
             }
         }
     }
