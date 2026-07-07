@@ -153,6 +153,7 @@ function calc_focus() {
     const fwhm = q_fwhm.value;
     const nm = q_nm.value;
     const uj = q_uj.value;
+    const thz = q_thz.value;
 
     const d_final = 4e-3 * m2 * nm * d_lens / (3.14159 * d_init);
     const fluence = 8e8 * uj / (3.14159 * (d_final*d_final));
@@ -166,7 +167,7 @@ function calc_focus() {
             result_fluence.innerHTML = precise(fluence).toString() + " µJ/cm^2";
             if (!isNaN(peak_field)&&(peak_field > 0)) {
                 result_field.innerHTML = precise(peak_field).toString() + " V/nm";
-                if (!isNaN(peak_field)&&(peak_field > 0)) {
+                if (!isNaN(peak_field_wavevec)&&(peak_field_wavevec > 0)) {
                     result_field_wavevec.innerHTML = precise(peak_field_wavevec).toString() + " 1/Å";
                 }
             }
